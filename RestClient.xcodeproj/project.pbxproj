@@ -3,20 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		35CCD8D5F33DB04B1CF28F04 /* Pods_RestClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F14AE87E1E05BEB72F0790E /* Pods_RestClient.framework */; };
 		9B0385D22885789600C82BCF /* RepositoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0385D12885789600C82BCF /* RepositoryInformation.swift */; };
 		9B0385DE2886D2B700C82BCF /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0385DD2886D2B700C82BCF /* RepoViewController.swift */; };
-		9B0385E32886E0F300C82BCF /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0385E22886E0F300C82BCF /* CustomCell.swift */; };
+		9B0385E32886E0F300C82BCF /* CustomRepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0385E22886E0F300C82BCF /* CustomRepoCell.swift */; };
+		9B4D3608288971440099F160 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4D3607288971440099F160 /* R.generated.swift */; };
+		9B4D361628898CAA0099F160 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B4D361828898CAA0099F160 /* Localizable.strings */; };
 		9B8F2BF02884496F0013967F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F2BEF2884496F0013967F /* AppDelegate.swift */; };
 		9B8F2BF22884496F0013967F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F2BF12884496F0013967F /* SceneDelegate.swift */; };
 		9B8F2BF42884496F0013967F /* TrendingReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F2BF32884496F0013967F /* TrendingReposViewController.swift */; };
-		9B8F2BF72884496F0013967F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8F2BF52884496F0013967F /* Main.storyboard */; };
 		9B8F2BF9288449720013967F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8F2BF8288449720013967F /* Assets.xcassets */; };
-		9B8F2BFC288449720013967F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8F2BFA288449720013967F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,14 +24,15 @@
 		4F14AE87E1E05BEB72F0790E /* Pods_RestClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0385D12885789600C82BCF /* RepositoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInformation.swift; sourceTree = "<group>"; };
 		9B0385DD2886D2B700C82BCF /* RepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
-		9B0385E22886E0F300C82BCF /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		9B0385E22886E0F300C82BCF /* CustomRepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRepoCell.swift; sourceTree = "<group>"; };
+		9B4D3607288971440099F160 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		9B4D361728898CAA0099F160 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B4D361A28898E170099F160 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9B8F2BEC2884496F0013967F /* RestClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8F2BEF2884496F0013967F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B8F2BF12884496F0013967F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9B8F2BF32884496F0013967F /* TrendingReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposViewController.swift; sourceTree = "<group>"; };
-		9B8F2BF62884496F0013967F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B8F2BF8288449720013967F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9B8F2BFB288449720013967F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B8F2BFD288449720013967F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CABD56942DBB8BD66510068E /* Pods-RestClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestClient.release.xcconfig"; path = "Target Support Files/Pods-RestClient/Pods-RestClient.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,11 +75,11 @@
 				9B8F2BF32884496F0013967F /* TrendingReposViewController.swift */,
 				9B0385DD2886D2B700C82BCF /* RepoViewController.swift */,
 				9B0385D12885789600C82BCF /* RepositoryInformation.swift */,
-				9B8F2BF52884496F0013967F /* Main.storyboard */,
 				9B8F2BF8288449720013967F /* Assets.xcassets */,
-				9B8F2BFA288449720013967F /* LaunchScreen.storyboard */,
 				9B8F2BFD288449720013967F /* Info.plist */,
-				9B0385E22886E0F300C82BCF /* CustomCell.swift */,
+				9B4D3607288971440099F160 /* R.generated.swift */,
+				9B0385E22886E0F300C82BCF /* CustomRepoCell.swift */,
+				9B4D361828898CAA0099F160 /* Localizable.strings */,
 			);
 			path = RestClient;
 			sourceTree = "<group>";
@@ -108,6 +109,7 @@
 			buildConfigurationList = 9B8F2C00288449720013967F /* Build configuration list for PBXNativeTarget "RestClient" */;
 			buildPhases = (
 				529010F85B3BE13401869926 /* [CP] Check Pods Manifest.lock */,
+				9B4D35FE28896EE00099F160 /* ShellScript */,
 				9B8F2BE82884496F0013967F /* Sources */,
 				9B8F2BE92884496F0013967F /* Frameworks */,
 				9B8F2BEA2884496F0013967F /* Resources */,
@@ -143,6 +145,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"en-GB",
 			);
 			mainGroup = 9B8F2BE32884496F0013967F;
 			productRefGroup = 9B8F2BED2884496F0013967F /* Products */;
@@ -159,9 +162,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B8F2BFC288449720013967F /* LaunchScreen.storyboard in Resources */,
 				9B8F2BF9288449720013967F /* Assets.xcassets in Resources */,
-				9B8F2BF72884496F0013967F /* Main.storyboard in Resources */,
+				9B4D361628898CAA0099F160 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +192,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9B4D35FE28896EE00099F160 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		A057E3DF2FF4D90685D2CFFE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,10 +236,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B8F2BF42884496F0013967F /* TrendingReposViewController.swift in Sources */,
+				9B4D3608288971440099F160 /* R.generated.swift in Sources */,
 				9B8F2BF02884496F0013967F /* AppDelegate.swift in Sources */,
 				9B0385D22885789600C82BCF /* RepositoryInformation.swift in Sources */,
 				9B0385DE2886D2B700C82BCF /* RepoViewController.swift in Sources */,
-				9B0385E32886E0F300C82BCF /* CustomCell.swift in Sources */,
+				9B0385E32886E0F300C82BCF /* CustomRepoCell.swift in Sources */,
 				9B8F2BF22884496F0013967F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,20 +248,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9B8F2BF52884496F0013967F /* Main.storyboard */ = {
+		9B4D361828898CAA0099F160 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9B8F2BF62884496F0013967F /* Base */,
+				9B4D361728898CAA0099F160 /* en */,
+				9B4D361A28898E170099F160 /* en-GB */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9B8F2BFA288449720013967F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9B8F2BFB288449720013967F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -249,6 +264,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -310,6 +326,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

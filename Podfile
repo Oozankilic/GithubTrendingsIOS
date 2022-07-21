@@ -5,4 +5,6 @@ use_frameworks!
 target 'RestClient' do
     pod 'SnapKit', '~> 5.6.0'
     pod 'Kingfisher', '~> 6.3.1'
+    pod 'R.swift'
+    pod 'Reusable'
 end

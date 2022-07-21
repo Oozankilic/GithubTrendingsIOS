@@ -1,21 +1,22 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import Rswift
 
 class TrendingReposViewController: UIViewController {
-    lazy var tbl: UITableView = {
+    lazy var repoTable: UITableView = {
         let v = UITableView()
         v.rowHeight = 100
         v.separatorStyle = .none
-        v.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        v.tintColor = R.color.black()
         v.delegate = self
-        v.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        v.backgroundColor = R.color.blue()
         return v
     }()
     
     lazy var searchBar: UISearchBar = {
         let s = UISearchBar()
-        s.placeholder = "Search by username"
+        s.placeholder = R.string.localizable.searchbar_placeholder()
         s.delegate = self
         return s
     }()
@@ -24,43 +25,39 @@ class TrendingReposViewController: UIViewController {
     let pageName: UILabel = {
         let l = UILabel()
         l.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        l.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        l.textColor = R.color.white()
         l.textAlignment = .center
-        l.text = "Swift Trends"
+        l.text = R.string.localizable.application_name()
         return l
     }()
 
     var allDescriptions: Initial!  {
         didSet{
-            items.removeAll()
-            items.append(contentsOf: (0..<30).map { allDescriptions.items[$0].full_name })
+            repoNames.removeAll()
+            repoNames.append(contentsOf: (0..<30).map { allDescriptions.items[$0].full_name })
         }
     }
     
     var targetedDescriptions: Initial!
  
-    var items: [String] = []
+    var repoNames: [String] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.1195272843, green: 0.1195272843, blue: 0.1195272843, alpha: 1)
+        view.backgroundColor = R.color.backgroundBlack()
         
-        items.append(contentsOf: (1...30).map { "Item \($0) loading.." })
+        repoNames = Array(repeating: R.string.localizable.loading_item(), count: 30)
         decodeAPI()        
         setupUI()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tbl.reloadData()
+        self.repoTable.reloadData()
     }
     
-   
-    
-    
     func decodeAPI(){
-        
         guard let url = URL(string: "https://api.github.com/search/repositories?q=language:swift") else{return}
 
         let task = URLSession.shared.dataTask(with: url){
@@ -77,7 +74,7 @@ class TrendingReposViewController: UIViewController {
                     print(error)
                 }
                 DispatchQueue.main.async{
-                    self.tbl.reloadData()
+                    self.repoTable.reloadData()
                 }
             }
         }
@@ -87,12 +84,15 @@ class TrendingReposViewController: UIViewController {
     
 
     func setupUI() {
-        tbl.delegate = self
-        tbl.dataSource = self
-        tbl.register(CustomCell.self, forCellReuseIdentifier: CustomCell.cellId)
+        repoTable.delegate = self
+        repoTable.dataSource = self
+        repoTable.register(cellType: CustomRepoCell.self)
+        
+        repoTable.estimatedRowHeight = 85.0
+        repoTable.rowHeight = UITableView.automaticDimension
         
         self.view.addSubview(pageName)
-        self.view.addSubview(tbl)
+        self.view.addSubview(repoTable)
         self.view.addSubview(searchBar)
         
         pageName.snp.makeConstraints { (make) in
@@ -107,19 +107,19 @@ class TrendingReposViewController: UIViewController {
             make.leading.trailing.equalTo(self.view)
         }
         
-        tbl.snp.makeConstraints { (make) in
+        repoTable.snp.makeConstraints { (make) in
             make.top.equalTo(searchBar.snp.bottom)
             make.bottom.leading.trailing.equalToSuperview()
         }
     }
     func updateTargetedDescriptions(with indices: [Bool]) {
         targetedDescriptions.items.removeAll()
-        items.removeAll()
+        repoNames.removeAll()
         indices.indices.forEach { (index) in
             if indices[index]{
                 let indexPath = IndexPath(item: index, section: 0)
                 targetedDescriptions.items.append(allDescriptions.items[indexPath.row])
-                items.append(allDescriptions.items[indexPath.row].full_name)
+                repoNames.append(allDescriptions.items[indexPath.row].full_name)
             }
         }
     }
@@ -140,32 +140,34 @@ extension TrendingReposViewController: UITableViewDelegate, UITableViewDataSourc
             }
         }
         updateTargetedDescriptions(with: searchedIndices)
-        self.tbl.reloadData()
+        self.repoTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if targetedDescriptions != nil{
             return targetedDescriptions.items.count
         }else{
-            return items.count
+            return repoNames.count
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.cellId, for: indexPath) as! CustomCell
-        cell.lblTitle.text = items[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CustomRepoCell.self) 
+        let title = repoNames[indexPath.row]
+        var imageUrl = URL(string: "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png")!
+        var description = ""
+        var stars = ""
         if targetedDescriptions != nil {
             if (targetedDescriptions.items[indexPath.row].owner.avatar_url != nil) {
-                let url = URL(string: targetedDescriptions.items[indexPath.row].owner.avatar_url)
-                let processor = RoundCornerImageProcessor(cornerRadius: 150)
-                cell.lblImageView.kf.setImage(with: url, options: [.processor(processor)])
+                imageUrl = URL(string: targetedDescriptions.items[indexPath.row].owner.avatar_url)!
+               
             }
             if (targetedDescriptions.items[indexPath.row].description != nil) {
-                cell.lblDescription.text = targetedDescriptions.items[indexPath.row].description
+                description = targetedDescriptions.items[indexPath.row].description
             }
-            cell.lblStars.text = "⭐️" + String(targetedDescriptions.items[indexPath.row].stargazers_count)
+           stars = "⭐️" + String(targetedDescriptions.items[indexPath.row].stargazers_count)
         }
+        cell.prepare(title: title, imageUrl: imageUrl, description: description, stars: stars)
         return cell
     }
     

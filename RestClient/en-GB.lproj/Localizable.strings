@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  RestClient
+
+  Created by ozan kilic on 21.07.2022.
+  
+*/
+
+"application_name" = "Swift Trends";
+"searchbar_placeholder" = "Search by name";
+"loading_item" = "Item is loading..";

@@ -28,10 +28,10 @@ class RepoViewController: UIViewController {
     let subContainerView = UIView(frame: .zero)
     
     func setUp(){
-        containerView.backgroundColor = #colorLiteral(red: 0.7345732868, green: 0.7345732868, blue: 0.7345732868, alpha: 1)
-        backgroundView.backgroundColor = #colorLiteral(red: 0.1195272843, green: 0.1195272843, blue: 0.1195272843, alpha: 1)
+        containerView.backgroundColor = R.color.gray()
+        backgroundView.backgroundColor = R.color.backgroundBlack()
         containerView.layer.cornerRadius = 10
-        subContainerView.backgroundColor = .white
+        subContainerView.backgroundColor = R.color.white()
         
         view.addSubview(backgroundView)
         backgroundView.snp.makeConstraints { (make) in
@@ -57,8 +57,8 @@ class RepoViewController: UIViewController {
         
         let watchers: UILabel = {
             let l = UILabel()
-            l.backgroundColor = #colorLiteral(red: 0.7345732868, green: 0.7345732868, blue: 0.7345732868, alpha: 1)
-            l.textColor = .black
+            l.backgroundColor = R.color.gray()
+            l.textColor = R.color.black()
             l.text = "  Watchers \t" + String(repoDetails.stargazers_count)
             l.font = UIFont.preferredFont(forTextStyle: .headline)
             l.layer.cornerRadius = 100
@@ -67,8 +67,8 @@ class RepoViewController: UIViewController {
         
         let size: UILabel = {
             let l = UILabel()
-            l.backgroundColor = #colorLiteral(red: 0.7345732868, green: 0.7345732868, blue: 0.7345732868, alpha: 1)
-            l.textColor = .black
+            l.backgroundColor = R.color.gray()
+            l.textColor = R.color.black()
             l.text = "  Size     \t" + String(repoDetails.size) + " KB"
             l.font = UIFont.preferredFont(forTextStyle: .headline)
             l.layer.cornerRadius = 100
@@ -77,8 +77,8 @@ class RepoViewController: UIViewController {
         
         let forks_count: UILabel = {
             let l = UILabel()
-            l.backgroundColor = #colorLiteral(red: 0.7345732868, green: 0.7345732868, blue: 0.7345732868, alpha: 1)
-            l.textColor = .black
+            l.backgroundColor = R.color.gray()
+            l.textColor = R.color.black()
             l.text = "  Forks    \t" + String(repoDetails.forks_count)
             l.font = UIFont.preferredFont(forTextStyle: .headline)
             l.layer.cornerRadius = 100
@@ -87,8 +87,8 @@ class RepoViewController: UIViewController {
         
         let stargazers_count: UILabel = {
             let l = UILabel()
-            l.backgroundColor = #colorLiteral(red: 0.7345732868, green: 0.7345732868, blue: 0.7345732868, alpha: 1)
-            l.textColor = .black
+            l.backgroundColor = R.color.gray()
+            l.textColor = R.color.black()
             l.text = "  Stars    \t" + String(repoDetails.stargazers_count)
             l.font = UIFont.preferredFont(forTextStyle: .headline)
             l.layer.cornerRadius = 100
@@ -97,8 +97,8 @@ class RepoViewController: UIViewController {
         
         let created_at : UILabel = {
             let l = UILabel()
-            l.backgroundColor = #colorLiteral(red: 0.7345732868, green: 0.7345732868, blue: 0.7345732868, alpha: 1)
-            l.textColor = .black
+            l.backgroundColor = R.color.gray()
+            l.textColor = R.color.black()
             l.text = "  Created at \t" + dateEditor(from: repoDetails.created_at)
             l.font = UIFont.preferredFont(forTextStyle: .headline)
             l.layer.cornerRadius = 100
@@ -107,8 +107,8 @@ class RepoViewController: UIViewController {
         
         let updated_at : UILabel = {
             let l = UILabel()
-            l.backgroundColor = #colorLiteral(red: 0.7345732868, green: 0.7345732868, blue: 0.7345732868, alpha: 1)
-            l.textColor = .black
+            l.backgroundColor = R.color.gray()
+            l.textColor = R.color.black()
             l.text = "  Updated at \t" + dateEditor(from: repoDetails.updated_at)
             l.font = UIFont.preferredFont(forTextStyle: .headline)
             l.layer.cornerRadius = 100
